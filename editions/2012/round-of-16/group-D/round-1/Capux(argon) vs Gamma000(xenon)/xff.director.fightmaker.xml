@@ -1,0 +1,374 @@
+<? xml version = "1.0" encoding = "ISO-8859-1" ?>
+<? xml-stylesheet href = "director.xsl" type = "text/xsl" ?>
+
+<!-- This is an auto-generate Mission Director script for X3: Albion Prelude. Please, do not use this script with X3: Terran Conflict -->
+
+
+<director name="template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="director.xsd">
+  <documentation>
+    <author alias="Aro" contact="Forum" />
+    <author alias="-Dna-" contact="Forum" />
+  </documentation>
+  <cues>
+    <cue name="xff.director.fightmaker">
+      <action>
+        <do_all>
+          <ask_question name="doxff" author="XFF Battle Creator" text="Begin the match?\nIf you're not ready to start the match hit the clear menu button (default is 'Delete') then activate this script later by bringing up the message log (default 'Shift+m').\n\n[select value = 'yes']Fight![/select]\n[select value = 'no']Denied.[/select]" popup="1" silent="1"/>
+          <play_sound soundid="1100"/>
+        </do_all>
+      </action>
+      <cues>
+        <cue name="doeet">
+          <condition>
+            <question_answered question="doxff" answer="yes"/>
+          </condition>
+          <action>
+            <do_all>
+
+<!-- iddqd -->
+                <set_invincible object="{player.ship}" invincible="1"/>
+<!-- Now Xenon are friendly. -->
+                <reward_player>
+                  <notoriety>
+                    <relation race="xenon" operation="set" exact="1000000"/>
+                  </notoriety>
+                </reward_player>
+<!-- Run extra code. -->
+                <run_script script="xff.setup" object="{player.ship}"/>
+<!-- Overtune player ship. -->
+
+                <add_equipment object="{player.ship}">
+
+                  <ware typename="SS_WARE_TECH276" exact="1" comment="Freight Scanner"/>
+                  <ware typename="SS_WARE_TECH242" exact="1" comment="Video Enhancment Googles"/>
+                  <ware typename="SS_WARE_BOOST" exact="1" comment="Boost Extension"/>
+
+                  <ware typename="SS_WARE_TECH213" exact="350"/>
+                  <ware typename="SS_WARE_TECH246" exact="{object.equipment.SS_WARE_TECH246.maxcount@{player.ship}}-{object.equipment.SS_WARE_TECH246.count@{group.object.{player.ship}}"/>
+                  <ware typename="SS_WARE_TECH251" exact="{object.equipment.SS_WARE_TECH251.maxcount@{player.ship}}-{object.equipment.SS_WARE_TECH251.count@{group.object.{player.ship}}"/>
+
+                </add_equipment>
+
+<!-- ==================== Do not edit above this line. ==================== -->
+
+<!-- /!\ Never forget to put this first line in the ships' equipment!!! /!\ 
+
+      <ware typename="SS_WARE_TECH251" exact="100000"/> 
+
+This is a brute-force solution to avoid the little cargo bay problem--> 
+
+<!-- Notoriety fix to avoid conflict with maps stations and neutral ships -->
+
+<set_notoriety race="argon">
+    <relation race="pirate" exact="max" mutual="1" operation="set"/>
+    <relation race="xenon" exact="min" mutual="1" operation="set"/>
+</set_notoriety>
+
+<set_notoriety race="xenon">
+    <relation race="pirate" exact="max" mutual="1" operation="set"/>
+    <relation race="argon" exact="min" mutual="1" operation="set"/>
+</set_notoriety>
+
+
+<!-- How far apart the fleets will spawn. 10km = 5. Do not add the 'km'. -->
+                <!-- set_value name="fleetDistance" exact="5"/ -->
+<!-- Spacing withing the fleets. -->
+                <!-- set_value name="fleetSpacing" exact="1"/ -->
+
+
+<!-- Spawn Argon Ships, place code below. -->
+
+
+        <do_all exact="1">
+            <!-- Osaka -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_USC_M2" warp="1" scanned="1" leader="1">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_TERRANANTIFIGHTER" exact="24"/> <!-- Cannone a Onde Stellari -->
+                    <ware typename="SS_LASER_PSP" exact="14"/> <!-- Proiettore di Singolarit&agrave; Puntiformi -->
+                    <ware typename="SS_MISSILE_POLTERGEIST" exact="40"/> <!-- Missili Poltergeist -->
+                    <ware typename="SS_SHIELD_F" exact="6"/> <!-- Scudo da 2GJ -->
+                </equipment>
+                <position x="-10km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="20">
+            <!-- Kestrel -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_T_M5P_P" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="2"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_LASER_PRG" exact="2"/> <!-- Cannone a Ripetizione in Fase -->
+                    <ware typename="SS_MISSILE_A" exact="35"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_B" exact="1"/> <!-- Scudo da 5MJ -->
+                </equipment>
+                <position x="-5km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="2">
+            <!-- Kestrel -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_T_M5P" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="4"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_MISSILE_A" exact="40"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_B" exact="1"/> <!-- Scudo da 5MJ -->
+                </equipment>
+                <position x="-5km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="2">
+            <!-- Tiger -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_S_M7" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="6"/> <!-- Cannone Tattico a Ripetizione -->
+                    <ware typename="SS_LASER_IBL" exact="12"/> <!-- Lancia Bombe Incendiarie -->
+                    <ware typename="SS_SHIELD_E" exact="4"/> <!-- Scudo da 1GJ -->
+                </equipment>
+                <position x="-10km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="2">
+            <!-- Panther Raider -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_S_M7_SPECIAL" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="8"/> <!-- Cannone Tattico a Ripetizione -->
+                    <ware typename="SS_LASER_ESR" exact="4"/> <!-- Mitragliatore a Frammenti Ionici -->
+                    <ware typename="SS_LASER_IBL" exact="10"/> <!-- Lancia Bombe Incendiarie -->
+                    <ware typename="SS_SHIELD_E" exact="4"/> <!-- Scudo da 1GJ -->
+                </equipment>
+                <position x="-10km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="1">
+            <!-- Cobra -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_S_M7M" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="2"/> <!-- Cannone Tattico a Ripetizione -->
+                    <ware typename="SS_MISSILE_TORP_CAPITAL" exact="100"/> <!-- Hammer Heavy Torpedo -->
+                    <ware typename="SS_MISSILE_AF_CAPITAL" exact="200"/> <!-- Missili Flail da Sbarramento -->
+                    <ware typename="SS_SHIELD_E" exact="3"/> <!-- Scudo da 1GJ -->
+                </equipment>
+                <position x="-15km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="15">
+            <!-- Hades -->
+            <create_ship group="argonGroup" race="argon" typename="SS_SH_P_M8" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="270deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_HEPT" exact="1"/> <!-- Cannone al Plasma ad Alta Energia -->
+                    <ware typename="SS_MISSILE_BOMBER" exact="50"/> <!-- Missili Pesanti Tomahawk -->
+                    <ware typename="SS_SHIELD_C" exact="5"/> <!-- Scudo da 25MJ -->
+                </equipment>
+                <position x="-15km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+<!-- End Argon Ships -->
+<!-- Spawn Xenon Ships, place code below. -->
+
+
+        <do_all exact="2">
+            <!-- Phoenix -->
+            <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_M2" warp="1" scanned="1" leader="1">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="90deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="12"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_LASER_PPC" exact="24"/> <!-- Cannone a Impulsi Fotonici -->
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="12"/> <!-- Cannone Tattico a Ripetizione -->
+                    <ware typename="SS_MISSILE_NEW3" exact="5"/> <!-- Missili Wildfire -->
+                    <ware typename="SS_MISSILE_SWRM" exact="5"/> <!-- Missili Typhoon -->
+                    <ware typename="SS_MISSILE_B" exact="15"/> <!-- Missili Wasp -->
+                    <ware typename="SS_MISSILE_A" exact="25"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_F" exact="5"/> <!-- Scudo da 2GJ -->
+                </equipment>
+                <position x="5km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="2">
+            <!-- Phoenix -->
+            <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_M2" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="90deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="12"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_LASER_PPC" exact="24"/> <!-- Cannone a Impulsi Fotonici -->
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="12"/> <!-- Cannone Tattico a Ripetizione -->
+                    <ware typename="SS_MISSILE_NEW3" exact="5"/> <!-- Missili Wildfire -->
+                    <ware typename="SS_MISSILE_SWRM" exact="5"/> <!-- Missili Typhoon -->
+                    <ware typename="SS_MISSILE_B" exact="15"/> <!-- Missili Wasp -->
+                    <ware typename="SS_MISSILE_A" exact="25"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_F" exact="5"/> <!-- Scudo da 2GJ -->
+                </equipment>
+                <position x="15km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="12">
+            <!-- Kestrel -->
+            <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_M5P" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="90deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="4"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_MISSILE_B" exact="15"/> <!-- Missili Wasp -->
+                    <ware typename="SS_MISSILE_A" exact="5"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_B" exact="1"/> <!-- Scudo da 5MJ -->
+                </equipment>
+                <position x="5km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="1">
+            <!-- Cormorant -->
+            <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_DC" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="90deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="6"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_LASER_GAUSS" exact="2"/> <!-- Cannone Gauss -->
+                    <ware typename="SS_MISSILE_FF" exact="15"/> <!-- Missili Tempest -->
+                    <ware typename="SS_MISSILE_B" exact="15"/> <!-- Missili Wasp -->
+                    <ware typename="SS_MISSILE_A" exact="25"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_D" exact="3"/> <!-- Scudo da 200MJ -->
+                    <ware typename="SS_WARE_AMMUNITION_GAMMA" exact="10"/> <!-- Munizioni per il Cannone Gauss -->
+                </equipment>
+                <position x="10km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+
+        <do_all exact="1">
+            <!-- Gannet -->
+            <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_M7M" warp="1" scanned="1" leader="0">
+                <sector sector="{player.sector}"/>
+                <rotation alpha="90deg"/>
+                <command command="killenemiesrange" distance="1000km"/>
+                <equipment>
+                    <ware typename="SS_WARE_TECH251" exact="100000"/>
+                    <ware typename="SS_WARE_SCANNER2" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_LASER_PAC" exact="1"/> <!-- Cannone ad Accelerazione di Particelle -->
+                    <ware typename="SS_MISSILE_TORP_CAPITAL" exact="240"/> <!-- Hammer Heavy Torpedo -->
+                    <ware typename="SS_MISSILE_AF_CAPITAL" exact="60"/> <!-- Missili Flail da Sbarramento -->
+                    <ware typename="SS_MISSILE_A" exact="45"/> <!-- Missili Mosquito -->
+                    <ware typename="SS_SHIELD_F" exact="3"/> <!-- Scudo da 2GJ -->
+                </equipment>
+                <position x="10km" y="0" z="0" max="1km"/>
+            </create_ship>
+        </do_all>
+        
+<!-- End Xenon Ships -->
+
+
+
+<!-- ==================== Do not edit below this line. ==================== -->
+
+
+<!-- This maxes out tunings/rudder/cargo for both groups -->
+
+                <do_all exact="{group.object.count@xenonGroup}" counter="count">
+                  <add_equipment object="{group.object.{counter@count}@xenonGroup}">
+
+                    <ware typename="SS_WARE_TECH213" exact="{object.equipment.SS_WARE_TECH213.maxcount@{group.object.{counter@count}@xenonGroup}}-{object.equipment.SS_WARE_TECH213.count@{group.object.{counter@count}@xenonGroup}}"/>
+                    <ware typename="SS_WARE_TECH246" exact="{object.equipment.SS_WARE_TECH246.maxcount@{group.object.{counter@count}@xenonGroup}}-{object.equipment.SS_WARE_TECH246.count@{group.object.{counter@count}@xenonGroup}}"/>
+                    <ware typename="SS_WARE_TECH251" exact="{object.equipment.SS_WARE_TECH251.maxcount@{group.object.{counter@count}@xenonGroup}}-{object.equipment.SS_WARE_TECH251.count@{group.object.{counter@count}@xenonGroup}}"/>
+                  </add_equipment>
+                </do_all>
+                <do_all exact="{group.object.count@argonGroup}" counter="count">
+                  <add_equipment object="{group.object.{counter@count}@argonGroup}">
+                    <ware typename="SS_WARE_TECH213" exact="{object.equipment.SS_WARE_TECH213.maxcount@{group.object.{counter@count}@argonGroup}}-{object.equipment.SS_WARE_TECH213.count@{group.object.{counter@count}@argonGroup}}"/>
+                    <ware typename="SS_WARE_TECH246" exact="{object.equipment.SS_WARE_TECH246.maxcount@{group.object.{counter@count}@argonGroup}}-{object.equipment.SS_WARE_TECH246.count@{group.object.{counter@count}@argonGroup}}"/>
+                    <ware typename="SS_WARE_TECH251" exact="{object.equipment.SS_WARE_TECH251.maxcount@{group.object.{counter@count}@argonGroup}}-{object.equipment.SS_WARE_TECH251.count@{group.object.{counter@count}@argonGroup}}"/>
+                  </add_equipment>  
+                </do_all>
+
+            </do_all>
+          </action>
+        </cue>
+        <cue name="runaway">
+          <condition>
+            <question_answered question="doxff" answer="no"/>
+          </condition>
+          <action>
+            <cancel_cue cue="xff.director.fightmaker"/>
+          </action>
+        </cue>
+      </cues>
+    </cue>
+  </cues>
+</director>

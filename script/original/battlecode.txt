@@ -1,0 +1,349 @@
+﻿=================
+imperium3 vs kalu
+=================
+
+----------/\argon--------------------xenon\/----------
+
+==========================
+Stealth Hunter vs X2-Eliah
+==========================
+
+----------/\argon--------------------xenon\/----------
+
+====================
+Olterin vs stemardue
+====================
+
+----------/\argon--------------------xenon\/----------
+
+=============================
+GCU Grey Area vs NUKLEAR-SLUG
+=============================
+
+----------/\argon--------------------xenon\/----------
+
+=================
+Sticks vs Algoran
+=================
+
+----------/\argon--------------------xenon\/----------
+
+======================
+xXxSamxXx vs travisdhl
+======================
+
+----------/\argon--------------------xenon\/----------
+
+===============================
+Master of the Blade vs ashkrowe
+===============================
+
+----------/\argon--------------------xenon\/----------
+
+==============
+Aro vs Triaxx2
+==============
+
+                <do_all exact="10">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_T_M5P" warp="1">
+                    <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_B" exact="1"/>
+                      <ware typename="SS_LASER_PAC" exact="2"/>
+                      <ware typename="SS_LASER_IRE" exact="1"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_MISSILE_B" exact="25"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <create_ship group="argonGroup" race="argon" typename="SS_SH_S_M7" warp="1">
+                  <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                  <sector sector="{player.sector}"/>
+                  <equipment>
+                    <ware typename="SS_SHIELD_E" exact="3"/>
+                    <ware typename="SS_SHIELD_B" exact="1"/>
+                    <ware typename="SS_LASER_PAL" exact="4"/>
+                    <ware typename="SS_LASER_CIG" exact="2"/>
+                    <ware typename="SS_LASER_IRE" exact="4"/>
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="3"/>
+                    <ware typename="SS_MISSILE_SWRM" exact="5"/>
+                  </equipment>
+                  <rotation alpha="90deg"/>
+                  <command command="killenemies"/>
+                </create_ship>
+
+                <do_all exact="2">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_S_M7" warp="1">
+                    <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_E" exact="4"/>
+                      <ware typename="SS_LASER_IBL" exact="6"/>
+                      <ware typename="SS_LASER_PAL" exact="4"/>
+                      <ware typename="SS_LASER_CIG" exact="5"/>
+                      <ware typename="SS_LASER_FLAK_ALPHA" exact="3"/>
+                      <ware typename="SS_MISSILE_SWRM" exact="24"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="2">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_S_M7_SPECIAL" warp="1" racelogic="0">
+                    <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_E" exact="4"/>
+                      <ware typename="SS_LASER_IBL" exact="6"/>
+                      <ware typename="SS_LASER_PAL" exact="4"/>
+                      <ware typename="SS_LASER_CIG" exact="3"/>
+                      <ware typename="SS_LASER_FLAK_ALPHA" exact="9"/>
+                      <ware typename="SS_MISSILE_SWRM" exact="15"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+----------/\argon--------------------xenon\/----------
+
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_S_M2" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_F" exact="2"/>
+                      <ware typename="SS_LASER_FLAK_ALPHA" exact="8"/>
+                      <ware typename="SS_LASER_PBE" exact="12"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+
+                <do_all exact="2">
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_TL" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="6"/>
+                      <ware typename="SS_LASER_FLAK_ALPHA" exact="8"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="20">
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_S_M3_2" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_C" exact="3"/>
+                      <ware typename="SS_LASER_PAC" exact="2"/>
+                      <ware typename="SS_LASER_HEPT" exact="6"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="2">
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_S_M6M" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="3"/>
+                      <ware typename="SS_LASER_HEPT" exact="12"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+
+==================================
+Deadbeat_Spinn vs Tenlar Scarflame
+==================================
+
+                <do_all exact="10">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_Y_M3P" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_C" exact="3"/>
+                      <ware typename="SS_LASER_MASS" exact="5"/>
+                      <ware typename="SS_LASER_PD" exact="4"/>
+                      <ware typename="SS_LASER_IRE" exact="2"/>
+                      <ware typename="SS_WARE_AMMUNITION_ALPHA" exact="200"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <create_ship group="argonGroup" race="argon" typename="SS_SH_OTAS_TM" warp="1">
+                  <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                  <sector sector="{player.sector}"/>
+                  <equipment>
+                    <ware typename="SS_SHIELD_D" exact="3"/>
+                    <ware typename="SS_LASER_IRE" exact="2"/>
+                    <ware typename="SS_LASER_MASS" exact="4"/>
+                    <ware typename="SS_WARE_AMMUNITION_ALPHA" exact="200"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                  </equipment>
+                  <rotation alpha="90deg"/>
+                  <command command="killenemies"/>
+                </create_ship>
+
+                <create_ship group="argonGroup" race="argon" typename="SS_SH_USC_M6" warp="1">
+                  <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                  <sector sector="{player.sector}"/>
+                  <equipment>
+                    <ware typename="SS_SHIELD_D" exact="5"/>
+                    <ware typename="SS_LASER_MAM" exact="4"/>
+                    <ware typename="SS_LASER_EMP" exact="8"/>
+                    <ware typename="SS_WARE_TR_TECH7" exact="168"/>
+                    <ware typename="SS_MISSILE_WRAITH" exact="13"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                  </equipment>
+                  <rotation alpha="90deg"/>
+                  <command command="killenemies"/>
+                </create_ship>
+
+                <do_all exact="2">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_A_M6M" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="4"/>
+                      <ware typename="SS_LASER_HEPT" exact="2"/>
+                      <ware typename="SS_LASER_EBC" exact="8"/>
+                      <ware typename="SS_LASER_PD" exact="6"/>
+                      <ware typename="SS_WARE_AMMUNITION_BETA" exact="200"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                      <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="2">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_P_M6M" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="4"/>
+                      <ware typename="SS_LASER_HEPT" exact="4"/>
+                      <ware typename="SS_LASER_PD" exact="4"/>
+                      <ware typename="SS_LASER_EBC" exact="4"/>
+                      <ware typename="SS_LASER_PAC" exact="2"/>
+                      <ware typename="SS_WARE_AMMUNITION_BETA" exact="200"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                      <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="3">
+                  <create_ship group="argonGroup" race="argon" typename="SS_SH_OTAS_M6M" warp="1">
+                    <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="5"/>
+                      <ware typename="SS_LASER_PD" exact="4"/>
+                      <ware typename="SS_LASER_MASS" exact="4"/>
+                      <ware typename="SS_LASER_HEPT" exact="3"/>
+                      <ware typename="SS_LASER_PAC" exact="3"/>
+                      <ware typename="SS_WARE_AMMUNITION_ALPHA" exact="200"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                      <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                    </equipment>
+                    <rotation alpha="90deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <create_ship group="argonGroup" race="argon" typename="SS_SH_P_M7" warp="1">
+                  <position x="{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                  <sector sector="{player.sector}"/>
+                  <equipment>
+                    <ware typename="SS_SHIELD_E" exact="6"/>
+                    <ware typename="SS_LASER_EBC" exact="4"/>
+                    <ware typename="SS_LASER_PSG" exact="8"/>
+                    <ware typename="SS_LASER_IBL" exact="2"/>
+                    <ware typename="SS_LASER_FLAK_ALPHA" exact="4"/>
+                    <ware typename="SS_WARE_AMMUNITION_BETA" exact="200"/>
+                    <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                    <ware typename="SS_WARE_SW_FIGHT_2" exact="1"/>
+                    <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                  </equipment>
+                  <rotation alpha="90deg"/>
+                  <command command="killenemies"/>
+                </create_ship>
+
+----------/\argon--------------------xenon\/----------
+
+                <do_all exact="2">
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_M2" warp="1">
+                    <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_F" exact="5"/>
+                      <ware typename="SS_LASER_GAUSS" exact="24"/>
+                      <ware typename="SS_LASER_ESR" exact="12"/>
+                      <ware typename="SS_WARE_AMMUNITION_GAMMA" exact="50"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="4">
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_TM" warp="1">
+                    <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="3"/>
+                      <ware typename="SS_LASER_IRE" exact="3"/>
+                      <ware typename="SS_MISSILE_B" exact="20"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>
+
+                <do_all exact="16">
+                  <create_ship group="xenonGroup" race="xenon" typename="SS_SH_T_M3_1" warp="1">
+                    <position x="-1*{value@fleetDistance}km" y="0" z="0" max="{value@fleetSpacing}km"/>
+                    <sector sector="{player.sector}"/>
+                    <equipment>
+                      <ware typename="SS_SHIELD_D" exact="1"/>
+                      <ware typename="SS_LASER_PRG" exact="4"/>
+                      <ware typename="SS_LASER_IRE" exact="1"/>
+                      <ware typename="SS_MISSILE_HTSK" exact="10"/>
+                      <ware typename="SS_MISSILE_B" exact="18"/>
+                      <ware typename="SS_WARE_SW_FIGHT_1" exact="1"/>
+                      <ware typename="SS_WARE_SCANNER3" exact="1"/>
+                    </equipment>
+                    <rotation alpha="270deg"/>
+                    <command command="killenemies"/>
+                  </create_ship>
+                </do_all>

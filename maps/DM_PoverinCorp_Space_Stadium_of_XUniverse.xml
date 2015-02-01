@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<universe>
+	<o f="1" t="1" x="1" y="3" r="8" size="20000000" m="8402" p="0" qtrade="100" qfight="100" qbuild="100" qthink="100">
+		<o t="2" s="25" neb="0" stars="0"/>
+		<o t="3" s="1" x="-31016705" y="-133037246" z="-43737690" color="8200995"/>
+		<o f="1" t="3" s="1" x="27876525" y="-129213118" z="57201381" color="16751495"/>
+		<o t="4" s="146" x="-18767274" y="-34492809" z="639710765" color="2295040" fn="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_HUB_TOP" x="0" y="0" z="0" a="0" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_HUB_EXT" x="0" y="0" z="0" a="0" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_HUB_BOTTOM" x="0" y="0" z="0" a="0" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_WARPGATE" x="0" y="0" z="11000000" a="0" b="0" g="-8" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_WARPGATE" x="0" y="0" z="-11000000" a="0" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_WARPGATE" x="9500000" y="0" z="5500000" a="-10500" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_WARPGATE" x="-9500000" y="0" z="-5500000" a="21000" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_WARPGATE" x="-9500000" y="0" z="5500000" a="10500" b="0" g="0" v="0"/>
+		<o f="1" t="20" s="SS_SPECIAL_WARPGATE" x="9500000" y="0" z="-5500000" a="-21000" b="0" g="0" v="0"/>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="2500000" r="13">
+		</o>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="-2500000" r="13">
+		</o>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="-7500000" r="13">
+		</o>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="2500000" r="13">
+		</o>
+	</o>
+</universe>

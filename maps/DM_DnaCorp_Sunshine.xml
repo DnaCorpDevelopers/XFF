@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<universe>
+	<o f="1" t="1" x="1" y="3" r="8" size="17500000" m="0" p="45898085" qtrade="100" qfight="100" qbuild="100" qthink="100">
+		<o t="2" s="31" neb="0" stars="0"/>
+		<o f="1" t="3" s="1" x="0" y="0" z="-250000000" color="14998212"/>
+		<o f="1" t="4" s="134" x="0" y="0" z="200000000" color="15461330" fn="10"/>
+		<o f="1" t="20" s="SS_SPECIAL_GATE_INACTIVE" x="0" y="0" z="-217765" a="0" b="0" g="0" v="0"/>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="-2500000" r="13">
+		</o>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="7500000" r="13">
+		</o>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="-7500000" r="13">
+		</o>
+		<o f="1" t="7" s="SS_SH_BEACON" x="0" y="0" z="2500000" r="13">
+		</o>
+	</o>
+</universe>

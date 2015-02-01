@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet href="director.xsl" type="text/xsl" ?>
+<director name="template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="director.xsd">
+  <documentation>
+    <author alias="Aro" contact="Forum" />
+  </documentation>
+  <cues>
+    <cue name="xff.director.fightmaker">
+      <action>
+        <do_all>
+          <ask_question name="doxff" author="XFF Battle Creator" text="Begin the match?\nIf you're not ready to start the match hit the clear menu button (default is 'Delete') then activate this script later by bringing up the message log (default 'Shift+m').\n\n[select value='yes']Fight![/select]\n[select value='no']Denied.[/select]" popup="1" silent="1"/>
+          <play_sound soundid="1100"/>
+        </do_all>
+      </action>
+      <cues>
+        <cue name="doeet">
+          <condition>
+            <question_answered question="doxff" answer="yes"/>
+          </condition>
+          <action>
+            <do_all>
+
+<!-- iddqd -->
+                <set_invincible object="{player.ship}" invincible="1"/>
+<!-- Now Xenon are friendly. -->
+                <reward_player>
+                  <notoriety>
+                    <relation race="xenon" operation="set" exact="1000000"/>
+                  </notoriety>
+                </reward_player>
+<!-- Run extra code. -->
+                <run_script script="xff.setup" object="{player.ship}"/>
+<!-- Overtune player ship. -->
+                <add_equipment object="{player.ship}">
+                  <ware typename="SS_WARE_TECH213" exact="350"/>
+                  <ware typename="SS_WARE_TECH246" exact="{object.equipment.SS_WARE_TECH246.maxcount@{player.ship}}-{object.equipment.SS_WARE_TECH246.count@{group.object.{player.ship}}"/>
+                  <ware typename="SS_WARE_TECH251" exact="{object.equipment.SS_WARE_TECH251.maxcount@{player.ship}}-{object.equipment.SS_WARE_TECH251.count@{group.object.{player.ship}}"/>
+                </add_equipment>
+
+
+<!-- ==================== Do not edit above this line. ==================== -->
+
+
+
+
+<!-- How far apart the fleets will spawn. 10km = 5. Do not add the 'km'. -->
+                <set_value name="fleetDistance" exact="5"/>
+<!-- Spacing withing the fleets. -->
+                <set_value name="fleetSpacing" exact="3"/>
+
+<!-- Spawn Argon Ships, place code below. -->
+
+
+
+<!-- End Argon Ships -->
+<!-- Spawn Xenon Ships, place code below. -->
+
+
+
+<!-- End Xenon Ships -->
+
+
+
+<!-- ==================== Do not edit below this line. ==================== -->
+
+
+<!-- This maxes out tunings/rudder/cargo for both groups -->
+                <do_all exact="{group.object.count@xenonGroup}" counter="count">
+                  <add_equipment object="{group.object.{counter@count}@xenonGroup}">
+                    <ware typename="SS_WARE_TECH213" exact="{object.equipment.SS_WARE_TECH213.maxcount@{group.object.{counter@count}@xenonGroup}}-{object.equipment.SS_WARE_TECH213.count@{group.object.{counter@count}@xenonGroup}}"/>
+                    <ware typename="SS_WARE_TECH246" exact="{object.equipment.SS_WARE_TECH246.maxcount@{group.object.{counter@count}@xenonGroup}}-{object.equipment.SS_WARE_TECH246.count@{group.object.{counter@count}@xenonGroup}}"/>
+                    <ware typename="SS_WARE_TECH251" exact="{object.equipment.SS_WARE_TECH251.maxcount@{group.object.{counter@count}@xenonGroup}}-{object.equipment.SS_WARE_TECH251.count@{group.object.{counter@count}@xenonGroup}}"/>
+                  </add_equipment>
+                </do_all>
+                <do_all exact="{group.object.count@argonGroup}" counter="count">
+                  <add_equipment object="{group.object.{counter@count}@argonGroup}">
+                    <ware typename="SS_WARE_TECH213" exact="{object.equipment.SS_WARE_TECH213.maxcount@{group.object.{counter@count}@argonGroup}}-{object.equipment.SS_WARE_TECH213.count@{group.object.{counter@count}@argonGroup}}"/>
+                    <ware typename="SS_WARE_TECH246" exact="{object.equipment.SS_WARE_TECH246.maxcount@{group.object.{counter@count}@argonGroup}}-{object.equipment.SS_WARE_TECH246.count@{group.object.{counter@count}@argonGroup}}"/>
+                    <ware typename="SS_WARE_TECH251" exact="{object.equipment.SS_WARE_TECH251.maxcount@{group.object.{counter@count}@argonGroup}}-{object.equipment.SS_WARE_TECH251.count@{group.object.{counter@count}@argonGroup}}"/>
+                  </add_equipment>  
+                </do_all>
+
+            </do_all>
+          </action>
+        </cue>
+        <cue name="runaway">
+          <condition>
+            <question_answered question="doxff" answer="no"/>
+          </condition>
+          <action>
+            <cancel_cue cue="xff.director.fightmaker"/>
+          </action>
+        </cue>
+      </cues>
+    </cue>
+  </cues>
+</director>
